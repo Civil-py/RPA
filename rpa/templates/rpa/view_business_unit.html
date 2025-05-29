@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% include "rpa/header.html" %}
+{% for m in messages %}
+    {{ m }}
+{% endfor %}
+
+
+
+
+<section>
+<div class="container">
+  <div class="row" id="softwareList">
+
+    <div class="d-flex justify-content-between align-items-center">
+
+    </div>
+
+    <p></p>
+    <p></p>
+
+    <div class="card text-center">
+      <div class="card-header">
+
+        <div class="mt-2">
+            {% if user.is_superuser %}
+      <a href="{% url 'edit_business_unit' business_unit.id %}">
+        <button class="btn custom-btn btn-outline-secondary float-start" width="15" height="15"><svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
+  <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"></path>
+  <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5z"></path>
+</svg></button>
+
+      </a>
+    </div>
+      </div>
+        {% else %}
+      <p>
+      </p>
+      {% endif %}
+
+      <div class="card-body">
+        <h5 class="card-title display-4">{{ business_unit.name }}</h5>
+        <p class="card-text">{{ business_unit.head }}</p>
+
+
+
+      </div>
+    </div>
+
+    <div class="mt-4">
+      <a href="{% url 'add_process' business_unit.id %}">
+
+        <button class="btn btn-sm btn-outline-primary"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus" viewBox="0 0 16 16">
+  <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4"/>
+</svg>Add Process</button>
+      </a>
+        {% if user.is_superuser %}
+      <a href="{% url 'delete_business_unit' business_unit.id %}">
+        <button class="btn btn-danger float-end">Delete Business Unit</button>
+      </a>
+    </div>
+        {% else %}
+      <p>
+      </p>
+      {% endif %}
+
+
+
+    <div class="mt-2">
+
+    </div>
+
+  </div>
+</div>
+
+    {% if user.is_superuser %}
+    <div>
+        <a href="{% url 'add_business_unit_managers' business_unit.id %}"> Add Users</a>
+    </div>
+    {% else %}
+    <p></p>
+    {% endif %}
+</section>
+
+<section>
+{% if process_data %}
+    <div class="row justify-content-center">
+        <h1>Processes</h1>
+        {% for process in process_data %}
+        <div class="col-md-4 mb-4">
+            <a href="{% url 'view_process' process.process_id %}" style="text-decoration:none;">
+                <div class="card" style="width: 18rem; background: #f9fafa; position:relative;">
+                    <div class="card-body">
+                        <img src="https://cdn.creazilla.com/cliparts/3152831/building-clipart-md.png" width="16" height="16" class="top-right-image">
+                        <h5 class="card-title">{{ process.name }}</h5>
+
+                        {% if process.suit is not None %}
+                            <p>Suitability: {{ process.suit }}%</p>
+                        {% endif %}
+                        {% if process.ready is not None %}
+                            <p>Ready: {{ process.ready }}%</p>
+                        {% endif %}
+                        {% if process.ben is not None %}
+                            <p>Benefit: {{ process.ben }}%</p>
+                        {% endif %}
+                        {% if process.vp is not None %}
+                            <p>RPA VP: {{ process.vp }}%</p>
+                        {% endif %}
+                        {% if process.bk is not None %}
+                            <p>Blockers: {{ process.bk }}%</p>
+                        {% endif %}
+                        {% if process.human_input is not None %}
+                            <p>Human Input: {{ process.human_input }}%</p>
+                        {% endif %}
+
+                    </div>
+                </div>
+            </a>
+        </div>
+        {% endfor %}
+    </div>
+{% else %}
+    <div>
+        <h2>No processes registered yet</h2>
+    </div>
+{% endif %}
+
+
+
+
+</section>
+
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+{% include "rpa/header.html" %}
+{% for m in messages %}
+    {{ m }}
+{% endfor %}
+
+<section style=" padding: 60px ;" >
+              <h4></h4>
+        <div class="tittle wow fadeInUp text-center" style="visibility: visible; animation-name: fadeInUp;">
+                        <h1 class="display-4">
+   Business Unites
+                        </h1>
+
+
+                    </div>
+            </section>
+
+
+ <div class="container">
+      <a href="{% url 'add_business_unit' %}">
+<button class="btn btn-sm btn-outline-primary float-end"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus" viewBox="0 0 16 16">
+  <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4"/>
+</svg></button>
+    </a>
+      <div class="row justify-content-center"> <!-- Bootstrap row to create grid -->
+
+        {% for business_unit  in business_units %}
+        <div class="col-md-4 mb-4"> <!-- Bootstrap column, 4 columns per row -->
+          <a href="{% url 'view_business_unit' business_unit.id %}" style="text-decoration:none;">
+            <div class="card" style="width: 18rem; background: #f9fafa; position:relative;">
+              <div class="card-body">
+                <img src="https://cdn.creazilla.com/cliparts/3152831/building-clipart-md.png" width="16" height="16" class="top-right-image">
+                <h5 class="card-title">{{ business_unit.name }}</h5>
+
+              </div>
+            </div>
+          </a>
+        </div>
+        {% endfor %}
+      </div>
+
+
+</div>
+
+
+</body>
+</html>

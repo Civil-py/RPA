@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+{% include "rpa/header.html" %}
+{% for m in messages %}
+    {{ m }}
+{% endfor %}
+
+
+<h1>Compatability for  {{ process.name }}</h1>
+
+
+<form action="#" method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+
+    <div class="form-group">
+        <label for="{{ form.Qtwo.id_for_label }}" style="color: white;"></label>
+        {{ form.process }}
+    </div>
+
+    <div class="form-group">
+        <label for="{{ form.Qtwo.id_for_label }}" style="color: white;"></label>
+        {{ form.created_date }}
+    </div>
+
+    <H2>What is the extent of mundane, non-value adding and repetitive tasks in the intended {{ process.name }} process?</H2>
+    <div class="form-group">
+        <label for="{{ form.Qone.id_for_label }}" style="color: white;">Q1</label>
+        {{ form.Qone }}
+    </div>
+<H2>Does the intended {{ process.name }} process currently exist in the business or will a new process be introduced?</H2>
+
+     <div class="form-group">
+        <label for="{{ form.Qtwo.id_for_label }}" style="color: white;">Q2</label>
+        {{ form.Qtwo }}
+    </div>
+
+    <H2>What is the extent of the human intervention required when completing repetitive tasks?</H2>
+
+     <div class="form-group">
+        <label for="{{ form.Qthree.id_for_label }}" style="color: white;">Q3</label>
+        {{ form.Qthree }}
+    </div>
+<h2>How often does the {{ process.name }} process run?</h2>
+<div class="form-group">
+    <label for="{{ form.Qfour.id_for_label }}" style="color: white;">Q4</label>
+    {{ form.Qfour }}
+</div>
+
+<h2>How many iterations are required to complete the task (ie rows of data being cycled through)?</h2>
+<div class="form-group">
+    <label for="{{ form.Qfive.id_for_label }}" style="color: white;">Q5</label>
+    {{ form.Qfive }}
+</div>
+
+<h2>How many man-hours are spent on these repetitive tasks within the indicated completion timeframes?</h2>
+<div class="form-group">
+    <label for="{{ form.Qsix.id_for_label }}" style="color: white;">Q6</label>
+    {{ form.Qsix }}
+</div>
+
+    <h2>When executing the human activities, are decisions required and if so, what type of decisions?</h2>
+<div class="form-group">
+    <label for="{{ form.Qseven.id_for_label }}" style="color: white;">Q7</label>
+    {{ form.Qseven }}
+</div>
+
+    <h2>Will there be exceptions when processing these activities and how are they dealt?</h2>
+<div class="form-group">
+    <label for="{{ form.Qeight.id_for_label }}" style="color: white;">Q8</label>
+    {{ form.Qeight }}
+</div>
+
+    <h2>Where does the information or data come from to support the {{ process.name }} process?</h2>
+<div class="form-group">
+    <label for="{{ form.Qnine.id_for_label }}" style="color: white;">Q9</label>
+    {{ form.Qnine }}
+</div>
+
+    <h2>Is the data maintained approved and maintained infrastructure?</h2>
+<div class="form-group">
+    <label for="{{ form.Qten.id_for_label }}" style="color: white;">Q10</label>
+    {{ form.Qten }}
+</div>
+
+    <H2>Will external or third party data access be required to complete the {{ process.name }} process?</H2>
+    <div class="form-group">
+        <label for="{{ form.Qeleven.id_for_label }}" style="color: white;">Q11</label>
+        {{ form.Qeleven }}
+    </div>
+
+<H2>Has information risk, governance, legal or contractual requirements been resolved for third party access?</H2>
+
+     <div class="form-group">
+        <label for="{{ form.Qtwelve.id_for_label }}" style="color: white;">Q12</label>
+        {{ form.Qtwelve}}
+    </div>
+
+    <H2>Have all systems, data sources, documents and other input requirements to the {{ process.name }} process been identified?</H2>
+
+     <div class="form-group">
+        <label for="{{ form.Qthirteen.id_for_label }}" style="color: white;">Q13</label>
+        {{ form.Qthirteen }}
+    </div>
+
+<h2>Have all options been evaluated to understand whether there are more appropriate solutions available?</h2>
+<div class="form-group">
+    <label for="{{ form.Qfourteen.id_for_label }}" style="color: white;">Q14</label>
+    {{ form.Qfourteen }}
+</div>
+
+<h2>Are any changes envisaged to the process, supporting systems or data structures in the near future?</h2>
+<div class="form-group">
+    <label for="{{ form.Qfifteen.id_for_label }}" style="color: white;">Q15</label>
+    {{ form.Qfifteen }}
+</div>
+
+<h2>Is there any immediate or known threat which require mitigation through this automation process?</h2>
+<div class="form-group">
+    <label for="{{ form.Qsixteen.id_for_label }}" style="color: white;">Q16</label>
+    {{ form.Qsixteen }}
+</div>
+
+    <h2>Will the business be able to provide support to the configuration and testing of the solution?</h2>
+<div class="form-group">
+    <label for="{{ form.Qseventeen.id_for_label }}" style="color: white;">Q17</label>
+    {{ form.Qseventeen }}
+</div>
+
+    <h2>Does the business have access to development and test environments for all systems implicit in the {{ process.name }} process?</h2>
+<div class="form-group">
+    <label for="{{ form.Qeighteen.id_for_label }}" style="color: white;">Q18</label>
+    {{ form.Qeighteen }}
+</div>
+
+    <h2>Does business have relevant test infrastructure and representative test data available for testing?</h2>
+<div class="form-group">
+    <label for="{{ form.Qnineteen.id_for_label }}" style="color: white;">Q19</label>
+    {{ form.Qnineteen }}
+</div>
+
+    <h2>Does the risk officer for the business support the idea / initiative and has sign-off been obtained?</h2>
+<div class="form-group">
+    <label for="{{ form.Qtwenty.id_for_label }}" style="color: white;">Q20</label>
+    {{ form.Qtwenty }}
+</div>
+
+    <h2>Do you have existing BOTs functioning in your business cluster?</h2>
+<div class="form-group">
+    <label for="{{ form.Qtwentyone.id_for_label }}" style="color: white;">Q21</label>
+    {{ form.Qtwentyone }}
+</div>
+
+    <button type="submit" class="btn btn-outline-secondary btn-sm-outline">Send</button>
+</form>
+
+
+
+
+
+
+
+
+</body>
+</html>

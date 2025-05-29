@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+{% include "rpa/header.html" %}
+{% for m in messages %}
+    {{ m }}
+{% endfor %}
+
+
+<h1>Configuration For {{ process.name }}</h1>
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+
+            <form action="" method="POST">
+                {% csrf_token %}
+                {{ form }}
+
+                <button type="submit" class="btn btn-secondary btn-sm" value=""> Save</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+</body>
+</html>
